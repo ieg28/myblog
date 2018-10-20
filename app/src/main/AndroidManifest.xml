@@ -21,7 +21,7 @@
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
+                <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
         <activity android:name=".SplashActivity">
@@ -34,7 +34,9 @@
         <activity
             android:name=".LoginActivity"
             android:label="@string/title_activity_login" />
-        <activity android:name=".SingupActivity"></activity>
+        <activity android:name=".SingupActivity" />
+        <activity android:name=".NewPostTextActivity" />
+        <activity android:name=".NewPostImageActivity"></activity>
     </application>
 
 </manifest>

@@ -1,5 +1,7 @@
 package com.ieg.myblog;
 
+import android.content.Intent;
+import android.os.Build;
 import android.support.design.widget.TabLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -11,12 +13,15 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
+import android.widget.Button;
+import android.widget.PopupWindow;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
@@ -35,6 +40,8 @@ public class MainActivity extends AppCompatActivity {
      * The {@link ViewPager} that will host the section contents.
      */
     private ViewPager mViewPager;
+
+    private PopupWindow mPopupWindow;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,8 +67,42 @@ public class MainActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                LayoutInflater inflater = (LayoutInflater) MainActivity.this.getSystemService(LAYOUT_INFLATER_SERVICE);
+                View customView = inflater.inflate(R.layout.popup_new_post_select, null);
+
+                mPopupWindow = new PopupWindow(
+                        customView,
+                        ViewGroup.LayoutParams.WRAP_CONTENT,
+                        ViewGroup.LayoutParams.WRAP_CONTENT
+                );
+
+                if (Build.VERSION.SDK_INT >= 21) {
+                    mPopupWindow.setElevation(5.0f);
+                }
+
+                Button textBtn = (Button) customView.findViewById(R.id.popup_text_post);
+                Button imageBtn = (Button) customView.findViewById(R.id.popup_image_post);
+
+                textBtn.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        // Dismiss the popup window
+                        mPopupWindow.dismiss();
+                        startActivity(new Intent(MainActivity.this, NewPostTextActivity.class));
+                    }
+                });
+
+                imageBtn.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        // Dismiss the popup window
+                        mPopupWindow.dismiss();
+                        startActivity(new Intent(MainActivity.this, NewPostImageActivity.class));
+                    }
+                });
+
+                final ViewGroup viewGroup = (ViewGroup) ((ViewGroup) MainActivity.this.findViewById(android.R.id.content)).getChildAt(0);
+                mPopupWindow.showAtLocation(viewGroup, Gravity.CENTER, 0, 0);
             }
         });
 
