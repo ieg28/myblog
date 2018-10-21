@@ -36,7 +36,7 @@
             android:label="@string/title_activity_login" />
         <activity android:name=".SingupActivity" />
         <activity android:name=".NewPostTextActivity" />
-        <activity android:name=".NewPostImageActivity"></activity>
+        <activity android:name=".NewPostImageActivity" />
     </application>
 
 </manifest>
