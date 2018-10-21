@@ -7,13 +7,14 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
+import com.ieg.myblog.adapters.PostImageViewAdapter;
 import com.ieg.myblog.models.PostImage;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
+
+import static com.ieg.myblog.activitys.MainActivity.mdata;
 
 public class AllPostFragment extends Fragment {
 
@@ -39,13 +40,6 @@ public class AllPostFragment extends Fragment {
         View rootView = inflater.inflate(R.layout.fragment_main, container, false);
 
         RecyclerView recyclerView = rootView.findViewById(R.id.all_post_list);
-
-        List<PostImage> mdata = new ArrayList<>();
-        mdata.add(new PostImage("ieg", "title1", "body1", "", System.currentTimeMillis()));
-        mdata.add(new PostImage("ieg", "title2", "body2", "", System.currentTimeMillis()));
-        mdata.add(new PostImage("ieg", "title3", "body3", "", System.currentTimeMillis()));
-        mdata.add(new PostImage("ieg", "title4", "body4", "", System.currentTimeMillis()));
-        mdata.add(new PostImage("ieg", "title5", "body5", "", System.currentTimeMillis()));
 
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
 

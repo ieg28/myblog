@@ -1,10 +1,12 @@
-package com.ieg.myblog;
+package com.ieg.myblog.adapters;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.ieg.myblog.R;
 
 public class PostImageViewHolder extends RecyclerView.ViewHolder {
 

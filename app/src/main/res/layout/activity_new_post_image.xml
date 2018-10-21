@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".NewPostImageActivity">
+    tools:context=".activitys.NewPostImageActivity">
 
     <TextView
         android:layout_width="match_parent"
@@ -13,12 +13,12 @@
         android:text="Title" />
 
     <EditText
-        android:id="@+id/text_image_title"
+        android:id="@+id/anpi_ed_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
     <ImageView
-        android:id="@+id/text_image_image"
+        android:id="@+id/anpi_img_image"
         android:layout_width="match_parent"
         android:layout_height="200dp" />
 
@@ -28,13 +28,13 @@
         android:text="Body" />
 
     <EditText
-        android:id="@+id/text_image_body"
+        android:id="@+id/anpi_ed_body"
         android:layout_width="match_parent"
         android:layout_height="150dp"
         android:maxLines="20" />
 
     <android.support.design.widget.FloatingActionButton
-        android:id="@+id/text_image_button"
+        android:id="@+id/anpi_btn_push"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="right"

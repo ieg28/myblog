@@ -1,8 +1,10 @@
-package com.ieg.myblog;
+package com.ieg.myblog.adapters;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
+
+import com.ieg.myblog.AllPostFragment;
 
 public class MainPageAdapter extends FragmentPagerAdapter {
 

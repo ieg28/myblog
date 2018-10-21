@@ -15,7 +15,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".MainActivity"
+            android:name=".activitys.MainActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
@@ -24,7 +24,7 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-        <activity android:name=".SplashActivity">
+        <activity android:name=".activitys.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -32,11 +32,11 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".LoginActivity"
+            android:name=".activitys.LoginActivity"
             android:label="@string/title_activity_login" />
-        <activity android:name=".SingupActivity" />
-        <activity android:name=".NewPostTextActivity" />
-        <activity android:name=".NewPostImageActivity" />
+        <activity android:name=".activitys.SingupActivity" />
+        <activity android:name=".activitys.NewPostTextActivity" />
+        <activity android:name=".activitys.NewPostImageActivity" />
     </application>
 
 </manifest>

@@ -1,13 +1,15 @@
-package com.ieg.myblog;
+package com.ieg.myblog.activitys;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-public class NewPostImageActivity extends AppCompatActivity {
+import com.ieg.myblog.R;
+
+public class NewPostTextActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_new_post_image);
+        setContentView(R.layout.activity_new_post_text);
     }
 }

@@ -1,16 +1,12 @@
-package com.ieg.myblog;
+package com.ieg.myblog.activitys;
 
 import android.content.Intent;
 import android.os.Build;
 import android.support.design.widget.TabLayout;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.os.Bundle;
 import android.view.Gravity;
@@ -22,18 +18,22 @@ import android.view.ViewGroup;
 
 import android.widget.Button;
 import android.widget.PopupWindow;
-import android.widget.TextView;
+
+import com.ieg.myblog.adapters.MainPageAdapter;
+import com.ieg.myblog.R;
+import com.ieg.myblog.models.PostImage;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
-    private MainPageAdapter mSectionsPagerAdapter;
-
-    /**
-     * The {@link ViewPager} that will host the section contents.
-     */
+    private MainPageAdapter mainPageAdapter;
     private ViewPager mViewPager;
 
     private PopupWindow mPopupWindow;
+
+    public static List<PostImage> mdata;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,13 +42,16 @@ public class MainActivity extends AppCompatActivity {
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        mdata = new ArrayList<>();
+
         // Create the adapter that will return a fragment for each of the three
         // primary sections of the activity.
-        mSectionsPagerAdapter = new MainPageAdapter(getSupportFragmentManager());
+        mainPageAdapter = new MainPageAdapter(getSupportFragmentManager());
 
         // Set up the ViewPager with the sections adapter.
         mViewPager = (ViewPager) findViewById(R.id.container);
-        mViewPager.setAdapter(mSectionsPagerAdapter);
+        mViewPager.setAdapter(mainPageAdapter);
 
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
 
@@ -121,5 +124,12 @@ public class MainActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        if (mainPageAdapter != null)
+            mainPageAdapter.notifyDataSetChanged();
     }
 }

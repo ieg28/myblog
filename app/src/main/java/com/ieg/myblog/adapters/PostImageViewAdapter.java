@@ -1,4 +1,4 @@
-package com.ieg.myblog;
+package com.ieg.myblog.adapters;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.ieg.myblog.R;
 import com.ieg.myblog.models.PostImage;
 
 import java.util.List;

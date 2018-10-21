@@ -1,10 +1,12 @@
-package com.ieg.myblog;
+package com.ieg.myblog.activitys;
 
 import android.content.Intent;
 import android.os.Handler;
-import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import com.ieg.myblog.Consts;
+import com.ieg.myblog.R;
 
 public class SplashActivity extends AppCompatActivity {
 
