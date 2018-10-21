@@ -2,12 +2,14 @@ package com.ieg.myblog;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.ieg.myblog.activitys.MainActivity;
 import com.ieg.myblog.adapters.PostImageViewAdapter;
 import com.ieg.myblog.models.PostImage;
 
@@ -39,6 +41,8 @@ public class AllPostFragment extends Fragment {
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_main, container, false);
 
+        SwipeRefreshLayout refreshLayout = rootView.findViewById(R.id.all_post_swipe);
+        refreshLayout.setOnRefreshListener(MainActivity.refreshListener);
         RecyclerView recyclerView = rootView.findViewById(R.id.all_post_list);
 
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));

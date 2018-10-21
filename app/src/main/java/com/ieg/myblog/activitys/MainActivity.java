@@ -2,8 +2,10 @@ package com.ieg.myblog.activitys;
 
 import android.content.Intent;
 import android.os.Build;
+import android.os.Handler;
 import android.support.design.widget.TabLayout;
 import android.support.design.widget.FloatingActionButton;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 
@@ -34,6 +36,7 @@ public class MainActivity extends AppCompatActivity {
     private PopupWindow mPopupWindow;
 
     public static List<PostImage> mdata;
+    public static SwipeRefreshLayout.OnRefreshListener refreshListener;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,7 +47,19 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         mdata = new ArrayList<>();
+        refreshListener = new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                if (mainPageAdapter != null)
+                    mainPageAdapter.notifyDataSetChanged();
 
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                    }
+                },1000);
+            }
+        };
         // Create the adapter that will return a fragment for each of the three
         // primary sections of the activity.
         mainPageAdapter = new MainPageAdapter(getSupportFragmentManager());
@@ -124,12 +139,5 @@ public class MainActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-        if (mainPageAdapter != null)
-            mainPageAdapter.notifyDataSetChanged();
     }
 }
