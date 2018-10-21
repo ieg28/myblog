@@ -51,7 +51,8 @@
         <TextView
             android:id="@+id/vpi_txt_body"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:text="no body" />
     </LinearLayout>
 
 </LinearLayout>
